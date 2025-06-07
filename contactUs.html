@@ -55,7 +55,11 @@
                 } else if(!esEmailValido(correo)) {
                     errores.push('El correo tiene un formato inválido.');
                 }
-                if(telefono === '') errores.push('El teléfono no puede estar vacío.');
+                if(telefono === '') {
+                    errores.push('El teléfono no puede estar vacío.');
+                } else if(!/^\+569\d{8}$/.test(telefono)) {
+                    errores.push('El teléfono debe comenzar con +569 y tener 11 dígitos en total.');
+                }
                 if(comuna === '') errores.push('Debe seleccionar una comuna.');
                 if(mensaje === '') errores.push('El mensaje no puede estar vacío.');
 
